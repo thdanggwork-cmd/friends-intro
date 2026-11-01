@@ -60,3 +60,7 @@ python main.py
 ```
 
 No additional packages are required for the MVP.
+## Project Documentation
+
+- [Eisenhower Matrix](docs/eisenhower-matrix.pdf)
+- [System Diagram](docs/system-diagram.png)
