@@ -1,7 +1,7 @@
 print("""================================
 Welcome to Friend Introduction!
 
-Version 0.1 - Very First Demo
+Version 0.2 - I Got Ur Loop
 ================================""")
 user_name = input("Please enter your name here:\n")
 print(f"""Hello there, {user_name}!
@@ -15,13 +15,16 @@ Believe me this is not malware T-T
 (Right???)
 
 So if you're ready...""")
-choice = input("""Choose what you want to know:
+while True: 
+    choice = input("""
+Choose what you want to know:
 
 1. Background
+2. Goodbye
 
 Option: """).strip()
-if choice == "1":
-    print("""Hello! My name is Dang (also known as Jake).
+    if choice == "1":
+        print("""Hello! My name is Dang (also known as Jake).
 
 After surviving:
 - 12 years of school,
@@ -42,5 +45,8 @@ Eventually I discovered that statistics, probability, logic
 and asking "but why?" are actually pretty fun.
 
 Calculus and I maintain a ceasefire (for now). Please don't question.""")
-else:
-    print("Noooooooo, you're breaking my baby code T_T")
+    elif choice == "2":
+        print("Oh, see you again!")
+        break
+    else:
+        print("Noooooooo, you're breaking my baby code T_T\n")
