@@ -1,7 +1,7 @@
 print("""================================
 Welcome to Friend Introduction!
 
-Version 0.3 - Hobby Hub
+Version 0.4 - Behavior Dump
 ================================""")
 user_name = input("Please enter your name here:\n")
 print(f"""Hello there, {user_name}!
@@ -21,7 +21,8 @@ Choose what you want to know:
 
 1. Background
 2. Hobbies
-3. Goodbye
+3. Behaviors
+4. Goodbye
 
 Option: """).strip()
     if choice == "1":
@@ -89,6 +90,41 @@ currently in a long-distance relationship.
                 print("Noooooooo, you're breaking my baby code T-T\n")
                 
     elif choice == "3":
+        print("Here's some of my behavior questions. Guess them!")
+
+        question_one = input("""1. When learning something new, I would...
+
+A. Read theory and understand it first.
+B. Start trying things immediately.
+C. Alternate between theory and practice.
+
+-> """)
+        print("Jake's answer: B")
+        print("I like to mess things up first beforehand")
+
+        question_two = input("""2. In a new group of people, I would...
+
+A. Observe first and speak when comfortable.
+B. Start conversations and meet people quickly.
+C. Depends on the group and the vibe.
+
+-> """)
+        print("Jake's answer: C")
+        print("I would like to see if the group fit me first. Can be a little picky at times")
+
+        question_three = input("""3. When facing a difficult problem, I usually...
+
+A. Keep trying different approaches.
+B. Ask someone for help.
+C. Take a break and return later.
+
+-> """)
+        print("Jake's answer: A")
+        print("I'm weighing between A and C, but usually I prefer to finish it first :>")
+
+        print("\nYou're done with exploring my behaviors! Take a look around and have fun :P")
+
+    elif choice == "4":
         print("Oh, see you again!")
         break
     else:
