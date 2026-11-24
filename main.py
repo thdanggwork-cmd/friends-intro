@@ -1,7 +1,7 @@
 print("""================================
 Welcome to Friend Introduction!
 
-Version 0.4 - Behavior Dump
+Version 0.5 - Friend Manual
 ================================""")
 user_name = input("Please enter your name here:\n")
 print(f"""Hello there, {user_name}!
@@ -22,7 +22,8 @@ Choose what you want to know:
 1. Background
 2. Hobbies
 3. Behaviors
-4. Goodbye
+4. Fun Facts
+5. Goodbye
 
 Option: """).strip()
     if choice == "1":
@@ -58,7 +59,7 @@ Calculus and I maintain a ceasefire (for now). Please don't question.""")
 
 Option: """)
             if hobby_choice == "2.1":
-                print(""" I enjoy taking photos, especially landscapes.
+                print("""I enjoy taking photos, especially landscapes.
 My walking speed decreases by approximately 90%
 whenever the landscape becomes interesting.
 Please be patient.
@@ -125,6 +126,18 @@ C. Take a break and return later.
         print("\nYou're done with exploring my behaviors! Take a look around and have fun :P")
 
     elif choice == "4":
+        print("""Here's some fun fact about me :3
+
+- I like action-oriented video games
+- I also like action-oriented movies, with some thrill involved
+- I can be a little harsh on money spending at times
+- I can be forgetful at times, but I'm working on it
+- I often need a change of space to work, so you
+wouldn't see me in the same place too often :P
+
+Let's see how similar we are to each other!""")
+        
+    elif choice == "5":
         print("Oh, see you again!")
         break
     else:
