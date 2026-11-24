@@ -13,40 +13,107 @@ wouldn't see me in the same place too often :P
 
 Let's see how similar we are to each other!""")
 # ============ BEHAVIORS ============
-def behaviors():
-    print("Here's some of my behavior questions. Guess them!")
+def question(num, text, jake_answer, reaction_a, reaction_b, reaction_c):
+    while True:
+        answer = input(f"{num}. {text} ").lower().strip()
+        if answer in ["a", "b", "c"]:
+            break
+        print("\nPlease choose A, B, or C or this will go on forever.\n")
+        
+    print("\n----- COMPARISON -----\n")
+    print(f"Your answer: {answer.upper()}")
+    print(f"Jake's answer: {jake_answer}")
 
-    question_one = input("""1. When learning something new, I would...
+    if answer == "a":
+        print(reaction_a)
+    elif answer == "b":
+        print(reaction_b)
+    else:
+        print(reaction_c)
+        
+def behaviors():
+
+    print("""\nYou're gonna answers some questions about behaviors with me.
+It'll be useful to get to know some of my basic human functions :D""")
+    
+    question(
+    1,
+    """When learning something new, you usually:
 
 A. Read theory and understand it first.
 B. Start trying things immediately.
 C. Alternate between theory and practice.
-
--> """)
-    print("Jake's answer: B")
-    print("I like to mess things up first beforehand")
-
-    question_two = input("""2. In a new group of people, I would...
+->""",
+    "B",
+    "-> Interesting. I usually get impatient if I stay in theory for too long 😭",
+    "-> Yep, same. I like to try things first and figure things out along the way.",
+    "-> Honestly, that's probably the healthiest approach."
+    )
+            
+    question(
+    2,
+    """In a new group of people, you usually:
 
 A. Observe first and speak when comfortable.
 B. Start conversations and meet people quickly.
 C. Depends on the group and the vibe.
+->""",
+    "C",
+    "-> I can be like that too. Sometimes I need a bit of time to understand the vibe.",
+    "-> That's braver than me 🤣 I don't usually walk into a room and start collecting friends.",
+    "-> Same. My social mode changes a lot depending on who's around."
+    )
+            
+    question(
+    3,
+    """Which type of behavior bothers you most?
 
--> """)
-    print("Jake's answer: C")
-    print("I would like to see if the group fit me first. Can be a little picky at times")
+A. Arrogance and looking down on others.
+B. Constant negativity and complaining.
+C. Dishonesty and talking behind people's backs.
+->""",
+    "A",
+    "-> Same. People acting superior for no reason drains my battery surprisingly fast.",
+    "-> I get that too. A little complaining is fine, but endless negativity gets exhausting.",
+    "-> Yeah... Trust is really important in any friendship."
+    )
+            
+    question(
+    4,
+    """What usually motivates you to do something?
 
-    question_three = input("""3. When facing a difficult problem, I usually...
+A. A clear goal or achievement.
+B. Curiosity and interest.
+C. Responsibility to other people.
+->""",
+    "B",
+    "-> Goals help, but they're usually not enough by themselves for me.",
+    "-> Yep. Curiosity is ridiculously effective on me. \nOne random idea can consume my entire afternoon.",
+    "-> Helping people is also motivating for me. I like feeling useful."
+    )
+            
+    question(
+    5,
+    """When facing a difficult problem, you usually:
 
 A. Keep trying different approaches.
 B. Ask someone for help.
 C. Take a break and return later.
+->""",
+    "A",
+    "-> Same. I tend to poke problems with a stick until they reveal what they're hiding. 🤓",
+    "-> I should probably do this more often. \nAsking for help isn't exactly my first instinct.",
+    "-> Honestly, this works more often than I thought. A reset can help a lot."
+    )
 
--> """)
-    print("Jake's answer: A")
-    print("I'm weighing between A and C, but usually I prefer to finish it first :>")
+    print("""
+Congratulations. You have successfully completed the behavior test.
 
-    print("\nYou're done with exploring my behaviors! Take a look around and have fun :P")
+I don't know what you answered, but since this is
+a program to get to know me, it doesn't matter :P.
+
+Oh, you can also try as many options as you want.
+They have different responses :3""")
 # ============ HOBBIES ============
 def hobbies():
     while True:
@@ -144,7 +211,7 @@ def introduction():
     print("""================================
 Welcome to Friend Introduction!
 
-Version 0.6 - Restructured
+Version 0.7 - Behavioral Revamp
 ================================""")
     user_name = input("Please enter your name here:\n")
     print(f"""Hello there, {user_name}!
