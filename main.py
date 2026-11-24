@@ -1,33 +1,97 @@
-print("""================================
-Welcome to Friend Introduction!
+def goodbye():
+    print("Oh, see you again!")
+# ============ FUN FACTS ============
+def funs():
+    print("""Here are some fun facts about me :3
 
-Version 0.5 - Friend Manual
-================================""")
-user_name = input("Please enter your name here:\n")
-print(f"""Hello there, {user_name}!
-My name is Dang, but you can call me Jake.
+- I like action-oriented video games
+- I also like action-oriented movies, with some thrill involved
+- I can be a little harsh on money spending at times
+- I can be forgetful at times, but I'm working on it
+- I often need a change of space to work, so you
+wouldn't see me in the same place too often :P
 
-I know it's pretty hard to introduce ourselves and
-get to know each other without being awkward.
+Let's see how similar we are to each other!""")
+# ============ BEHAVIORS ============
+def behaviors():
+    print("Here's some of my behavior questions. Guess them!")
 
-So I made this little program so you can get to know me first!
-Believe me this is not malware T-T
-(Right???)
+    question_one = input("""1. When learning something new, I would...
 
-So if you're ready...""")
-while True: 
-    choice = input("""
-Choose what you want to know:
+A. Read theory and understand it first.
+B. Start trying things immediately.
+C. Alternate between theory and practice.
 
-1. Background
-2. Hobbies
-3. Behaviors
-4. Fun Facts
-5. Goodbye
+-> """)
+    print("Jake's answer: B")
+    print("I like to mess things up first beforehand")
 
-Option: """).strip()
-    if choice == "1":
-        print("""Hello! My name is Dang (also known as Jake).
+    question_two = input("""2. In a new group of people, I would...
+
+A. Observe first and speak when comfortable.
+B. Start conversations and meet people quickly.
+C. Depends on the group and the vibe.
+
+-> """)
+    print("Jake's answer: C")
+    print("I would like to see if the group fit me first. Can be a little picky at times")
+
+    question_three = input("""3. When facing a difficult problem, I usually...
+
+A. Keep trying different approaches.
+B. Ask someone for help.
+C. Take a break and return later.
+
+-> """)
+    print("Jake's answer: A")
+    print("I'm weighing between A and C, but usually I prefer to finish it first :>")
+
+    print("\nYou're done with exploring my behaviors! Take a look around and have fun :P")
+# ============ HOBBIES ============
+def hobbies():
+    while True:
+        hobby_choice = input("""Choose a hobby below to read more:
+    
+2.1 Photography
+2.2 Cooking
+2.3 Sleeping
+2.4 Exit
+
+Option: """)
+        if hobby_choice == "2.1":
+            print("""I enjoy taking photos, especially landscapes.
+My walking speed decreases by approximately 90%
+whenever the landscape becomes interesting.
+Please be patient.
+Also I really like to propose photography ideas for people.
+""")
+                
+        elif hobby_choice == "2.2":
+            print("""I have been cooking since I was 6.
+If someone urges me to cook, my motivation drops significantly.
+If I choose to cook, I become 999% focused.
+The food choice can be questionable
+but most of the time it tastes good.
+""")
+
+        elif hobby_choice == "2.3":
+            print("""...
+...
+zzz...
+
+Yes, I enjoy sleeping.
+Unfortunately, sleep schedule and I are
+currently in a long-distance relationship.
+""")
+
+        elif hobby_choice == "2.4":
+            print("See you again! You can check this menu again too.")
+            break
+        else:
+            print("Noooooooo, you're breaking my baby code T-T\n")
+# ============ BACKGROUND ============ 
+def background():
+    print("""Hello! My name is Dang (also known as Jake).
 
 After surviving:
 - 12 years of school,
@@ -48,97 +112,52 @@ Eventually I discovered that statistics, probability, logic
 and asking "but why?" are actually pretty fun.
 
 Calculus and I maintain a ceasefire (for now). Please don't question.""")
-    elif choice == "2":
-        while True:
-            hobby_choice = input("""Choose a hobby below to read more:
+# ============ MENU ============
+def menu():
+    while True: 
+        choice = input("""
+Choose what you want to know:
 
-2.1 Photography
-2.2 Cooking
-2.3 Sleeping
-2.4 Exit
+1. Background
+2. Hobbies
+3. Behaviors
+4. Fun Facts
+5. Goodbye
 
-Option: """)
-            if hobby_choice == "2.1":
-                print("""I enjoy taking photos, especially landscapes.
-My walking speed decreases by approximately 90%
-whenever the landscape becomes interesting.
-Please be patient.
-Also I really like to propose photography ideas for people.
-""")
-                
-            elif hobby_choice == "2.2":
-                print("""I have been cooking since I was 6.
-If someone urges me to cook, my motivation drops significantly.
-If I choose to cook, I become 999% focused.
-The food choice can be questionable
-but most of the time it tastes good.
-""")
+Option: """).strip()
+    
+        if choice == "1":
+            background()
+        elif choice == "2":
+            hobbies()
+        elif choice == "3":
+            behaviors()
+        elif choice == "4":
+            funs()
+        elif choice == "5":
+            goodbye()
+            break
+        else:
+            print("Noooooooo, you're breaking my baby code T-T\n")
+# ============ INTRODUCTION ============
+def introduction():
+    print("""================================
+Welcome to Friend Introduction!
 
-            elif hobby_choice == "2.3":
-                print("""...
-...
-zzz...
+Version 0.6 - Restructured
+================================""")
+    user_name = input("Please enter your name here:\n")
+    print(f"""Hello there, {user_name}!
+My name is Dang, but you can call me Jake.
 
-Yes, I enjoy sleeping.
-Unfortunately, sleep schedule and I are
-currently in a long-distance relationship.
-""")
+I know it's pretty hard to introduce ourselves and
+get to know each other without being awkward.
 
-            elif hobby_choice == "2.4":
-                print("See you again! You can check this menu again too.")
-                break
-            else:
-                print("Noooooooo, you're breaking my baby code T-T\n")
-                
-    elif choice == "3":
-        print("Here's some of my behavior questions. Guess them!")
+So I made this little program so you can get to know me first!
+Believe me this is not malware T-T
+(Right???)
 
-        question_one = input("""1. When learning something new, I would...
-
-A. Read theory and understand it first.
-B. Start trying things immediately.
-C. Alternate between theory and practice.
-
--> """)
-        print("Jake's answer: B")
-        print("I like to mess things up first beforehand")
-
-        question_two = input("""2. In a new group of people, I would...
-
-A. Observe first and speak when comfortable.
-B. Start conversations and meet people quickly.
-C. Depends on the group and the vibe.
-
--> """)
-        print("Jake's answer: C")
-        print("I would like to see if the group fit me first. Can be a little picky at times")
-
-        question_three = input("""3. When facing a difficult problem, I usually...
-
-A. Keep trying different approaches.
-B. Ask someone for help.
-C. Take a break and return later.
-
--> """)
-        print("Jake's answer: A")
-        print("I'm weighing between A and C, but usually I prefer to finish it first :>")
-
-        print("\nYou're done with exploring my behaviors! Take a look around and have fun :P")
-
-    elif choice == "4":
-        print("""Here's some fun fact about me :3
-
-- I like action-oriented video games
-- I also like action-oriented movies, with some thrill involved
-- I can be a little harsh on money spending at times
-- I can be forgetful at times, but I'm working on it
-- I often need a change of space to work, so you
-wouldn't see me in the same place too often :P
-
-Let's see how similar we are to each other!""")
-        
-    elif choice == "5":
-        print("Oh, see you again!")
-        break
-    else:
-        print("Noooooooo, you're breaking my baby code T-T\n")
+So if you're ready...""")
+    menu()
+# ============ START THE GAME! ============
+introduction()
