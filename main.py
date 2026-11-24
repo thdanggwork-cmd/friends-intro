@@ -1,17 +1,178 @@
 def goodbye():
     print("Oh, see you again!")
-# ============ FUN FACTS ============
-def funs():
-    print("""Here are some fun facts about me :3
+# ============ COMPATIBILITY QUIZ ============
+COMP_QUESTIONS = [
+    {
+        "num": 1,
+        "text": "Which type of movie sounds most appealing?\n\nA. Action-packed movies\nB. Thrillers, mysteries, and psychological games\nC. Slow-paced documentaries and slice-of-life stories",
+        "jake_comp": "A and B",
+        "explanation": "I like movies that keep me engaged.\nExplosions are cool.\nMysteries are cool.\nPlease don't make me watch paint dry for two hours.",
+        "valid": ["a", "b"],
+        "allowed": ["a", "b", "c"]
+    },
+    {
+        "num": 2,
+        "text": "Which type of game sounds most appealing?\n\nA. Competitive multiplayer games\nB. Sandbox / creative games\nC. Story-driven adventures",
+        "jake_comp": "C",
+        "explanation": "I enjoy games with a direction.\nExploration is fun.\nKnowing why I'm moving forward is even better.",
+        "valid": ["c"],
+        "allowed": ["a", "b", "c"]
+    },
+    {
+        "num": 3,
+        "text": "What kind of music do you listen to?\n\nA. Pop\nB. Instrumental\nC. Rock\nD. Classical\nE. Other",
+        "jake_comp": "All of the above",
+        "explanation": "My music taste behaves more like a tourist\nthan a permanent resident.\n\nIf it sounds good, it enters the playlist.",
+        "valid": ["a", "b", "c", "d", "e"],
+        "allowed": ["a", "b", "c", "d", "e"]
+    },
+    {
+        "num": 4,
+        "text": "Which working style sounds more appealing?\n\nA. Working alone\nB. Working with a team",
+        "jake_comp": "B",
+        "explanation": "I enjoy teamwork more than people expect.\n\nThe challenge isn't teamwork.\nIt's finding a good team.",
+        "valid": ["b"],
+        "allowed": ["a", "b"]
+    },
+    {
+        "num": 5,
+        "text": "What makes a friendship valuable?\n\nA. Having fun together\nB. Being there when needed\nC. Trust and honesty\nD. Shared experiences",
+        "jake_comp": "All of the above",
+        "explanation": "Friendships aren't optimization problems.\n\nYou don't maximize one variable.\nThey're all important.",
+        "valid": ["a", "b", "c", "d"],
+        "allowed": ["a", "b", "c", "d"]
+    },
+    {
+        "num": 6,
+        "text": "What would you most likely forget before a trip?\n\nA. Phone\nB. Charger\nC. Money\nD. ID Card\nE. Airpods",
+        "jake_comp": "D",
+        "explanation": "I'm always telling myself that I prepared the IDs.\nAnd then forgot one of them. And encountered 101 problems and criticisms.\n\nPlease remind me twice before going out anytime.\nI'm working on it, I promise! I'll remind you too :D",
+        "valid": ["d"],
+        "allowed": ["a", "b", "c", "d", "e"]
+    },
+    {
+        "num": 8,
+        "text": "You find two options. What would you choose?\n\nA. More expensive but slightly better\nB. Cheaper but still acceptable",
+        "jake_comp": "B",
+        "explanation": "I usually try to maximize value.\nYou could see me stretching my wallet like bubble gums.\n\nIt isn't always as sweet as bubble gums, though.",
+        "valid": ["b"],
+        "allowed": ["a", "b"]
+    },
+    {
+        "num": 9,
+        "text": "What would a shared room with you probably look like?\n\nA. Extremely organized\nB. Organized chaos\nC. Self-disaster only\nD. Complete mess",
+        "jake_comp": "C",
+        "explanation": "I usually mess up my room a lot.\n\nBut I often try to keep that disorganization to myself.\nI value public places :P\nYeah I'll keep the living room tidy.",
+        "valid": ["c"],
+        "allowed": ["a", "b", "c", "d"]
+    },
+    {
+        "num": 10,
+        "text": "Which sounds most satisfying?\n\nA. Solving a difficult problem\nB. Creating something useful\nC. Roast someone playfully\nD. Eating good food",
+        "jake_comp": "All of the above",
+        "explanation": "This question is a free pass.\n\nI genuinely enjoy all four.",
+        "valid": ["a", "b", "c", "d"],
+        "allowed": ["a", "b", "c", "d"]
+    }
+]
+def reflective_question(num, text, jake_refl, explanation):
+    while True:
+        answer_refl = input(f"{num}. {text}\n> ").strip().lower()
 
-- I like action-oriented video games
-- I also like action-oriented movies, with some thrill involved
-- I can be a little harsh on money spending at times
-- I can be forgetful at times, but I'm working on it
-- I often need a change of space to work, so you
-wouldn't see me in the same place too often :P
+        if answer_refl in ["a", "b", "c", "d"]:
+            break
+        print("\nPlease choose a valid option or this will go on forever.\n")
 
-Let's see how similar we are to each other!""")
+    print("\n-------- RESULT --------\n")
+    print(f"Your answer: {answer_refl.upper()}")
+    print(f"Jake's answer: {jake_refl.upper()}")
+    
+    print(explanation)
+    
+def compatibility_question(num, text, jake_comp, explanation, valid_answers, allowed):
+    while True:
+        answer_comp = input(f"{num}. {text}\n> ").strip().lower()
+
+        if answer_comp in [al.lower() for al in allowed]:
+            break
+        print("\nPlease choose a valid option or this will go on forever.\n")
+
+    print("\n-------- RESULT --------\n")
+    print(f"Your answer: {answer_comp.upper()}")
+    print(f"Jake's answer: {jake_comp.upper()}")
+
+    if answer_comp in [v.lower() for v in valid_answers]:
+        print("\n[✓] Compatibility point earned!\n")
+        point = 1
+    else:
+        print("\n[X] No compatibility point this time.\n")
+        point = 0
+
+    print(explanation) 
+    return point
+
+def test():
+    print("""
+Loading compatibility test...""")
+
+    print("""
+Here's a quiz of some other random stuff I do.
+Let's see if we are any compatible!
+(P/s it doesn't matter that much tbh)
+""")
+    
+    current_score = 0
+    
+    for q in COMP_QUESTIONS[:6]:
+        current_score += compatibility_question(
+            num=q["num"],
+            text=q["text"],
+            jake_comp=q["jake_comp"],
+            explanation=q["explanation"],
+            valid_answers=q["valid"],
+            allowed=q["allowed"]
+        )
+        
+    reflective_question(
+        7,
+        """If given unlimited time and resources, what would you most likely create?
+
+A. A successful, worldwide business
+B. Useful projects and tools
+C. Laughter stuff
+D. Something personal""",
+        "???",
+        """Honestly, I don't know yet.\n\nI'm entering a new chapter of life, and I haven't fully figured out what I want to do.\n\nMaybe that's okay.\n\nFor now, I'm exploring the options I have.\nYou could also explore with me if you want to :P"""
+    )
+    
+    for q in COMP_QUESTIONS[6:]:
+        current_score += compatibility_question(
+            num=q["num"],
+            text=q["text"],
+            jake_comp=q["jake_comp"],
+            explanation=q["explanation"],
+            valid_answers=q["valid"],
+            allowed=q["allowed"]
+        )
+
+    print("Calculating compatibility score...")
+    print(f"Compatibility Score: {current_score}/9")
+
+    if current_score <= 3:
+        print("\nInteresting.\n\nOne of us may be an alien.\n")
+    elif current_score <= 5:
+        print("\nNot bad.\n\nFurther friendship testing recommended.\n")
+    elif current_score <= 7:
+        print("\nPretty compatible.\n\n Don't take my place though.\n")
+    else:
+        print("\nWarning.\n\nPossible duplicate Jake detected.\n")
+
+    print("""[✓] Compatibility test finished!
+Thank you for participating in the official Jake compatibility assessment.
+
+I believe we all have similarities and differences.
+But hey, that's what make us special, right?
+Check out the other menus if you haven't! Or do the quiz again :3""")
 # ============ BEHAVIORS ============
 def question(num, text, jake_answer, reaction_a, reaction_b, reaction_c):
     while True:
@@ -188,7 +349,7 @@ Choose what you want to know:
 1. Background
 2. Hobbies
 3. Behaviors
-4. Fun Facts
+4. Friend Manual
 5. Goodbye
 
 Option: """).strip()
@@ -200,7 +361,7 @@ Option: """).strip()
         elif choice == "3":
             behaviors()
         elif choice == "4":
-            funs()
+            test()
         elif choice == "5":
             goodbye()
             break
