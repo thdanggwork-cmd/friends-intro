@@ -1,3 +1,14 @@
+import time
+
+def short_pause():
+    time.sleep(0.8)
+    
+def medium_pause():
+    time.sleep(1.4)
+    
+def long_pause():
+    time.sleep(2)
+    
 def goodbye():
     print("Oh, see you again!")
 # ============ COMPATIBILITY QUIZ ============
@@ -70,7 +81,7 @@ COMP_QUESTIONS = [
         "num": 10,
         "text": "Which sounds most satisfying?\n\nA. Solving a difficult problem\nB. Creating something useful\nC. Roast someone playfully\nD. Eating good food",
         "jake_comp": "All of the above",
-        "explanation": "This question is a free pass.\n\nI genuinely enjoy all four.",
+        "explanation": "This question is a free pass.\nI genuinely enjoy all four.",
         "valid": ["a", "b", "c", "d"],
         "allowed": ["a", "b", "c", "d"]
     }
@@ -82,12 +93,17 @@ def reflective_question(num, text, jake_refl, explanation):
         if answer_refl in ["a", "b", "c", "d"]:
             break
         print("\nPlease choose a valid option or this will go on forever.\n")
+        short_pause()
 
     print("\n-------- RESULT --------\n")
+    short_pause()
     print(f"Your answer: {answer_refl.upper()}")
+    short_pause()
     print(f"Jake's answer: {jake_refl.upper()}")
+    short_pause()
     
     print(explanation)
+    long_pause()
     
 def compatibility_question(num, text, jake_comp, explanation, valid_answers, allowed):
     while True:
@@ -96,31 +112,38 @@ def compatibility_question(num, text, jake_comp, explanation, valid_answers, all
         if answer_comp in [al.lower() for al in allowed]:
             break
         print("\nPlease choose a valid option or this will go on forever.\n")
+        short_pause()
 
     print("\n-------- RESULT --------\n")
+    short_pause()
     print(f"Your answer: {answer_comp.upper()}")
+    short_pause()
     print(f"Jake's answer: {jake_comp.upper()}")
+    short_pause()
 
     if answer_comp in [v.lower() for v in valid_answers]:
         print("\n[✓] Compatibility point earned!\n")
         point = 1
+        short_pause()
     else:
         print("\n[X] No compatibility point this time.\n")
         point = 0
+        short_pause()
 
-    print(explanation) 
+    print(explanation)
+    long_pause()
     return point
 
 def test():
-    print("""
-Loading compatibility test...""")
+    print("[✓] Friend Manual selected!")
+    print("Loading compatibility test...\n")
+    medium_pause()
 
-    print("""
-Here's a quiz of some other random stuff I do.
+    print("""Here's a quiz of some other random stuff I do.
 Let's see if we are any compatible!
 (P/s it doesn't matter that much tbh)
 """)
-    
+    long_pause()
     current_score = 0
     
     for q in COMP_QUESTIONS[:6]:
@@ -156,23 +179,26 @@ D. Something personal""",
         )
 
     print("Calculating compatibility score...")
+    long_pause()
     print(f"Compatibility Score: {current_score}/9")
+    short_pause()
 
     if current_score <= 3:
         print("\nInteresting.\n\nOne of us may be an alien.\n")
     elif current_score <= 5:
         print("\nNot bad.\n\nFurther friendship testing recommended.\n")
     elif current_score <= 7:
-        print("\nPretty compatible.\n\n Don't take my place though.\n")
+        print("\nPretty compatible.\n\nDon't take my place though.\n")
     else:
         print("\nWarning.\n\nPossible duplicate Jake detected.\n")
-
+    short_pause()
     print("""[✓] Compatibility test finished!
 Thank you for participating in the official Jake compatibility assessment.
 
 I believe we all have similarities and differences.
 But hey, that's what make us special, right?
 Check out the other menus if you haven't! Or do the quiz again :3""")
+    long_pause()
 # ============ BEHAVIORS ============
 def question(num, text, jake_answer, reaction_a, reaction_b, reaction_c):
     while True:
@@ -180,10 +206,14 @@ def question(num, text, jake_answer, reaction_a, reaction_b, reaction_c):
         if answer in ["a", "b", "c"]:
             break
         print("\nPlease choose A, B, or C or this will go on forever.\n")
-        
+        short_pause()
+    short_pause()
     print("\n----- COMPARISON -----\n")
+    short_pause()
     print(f"Your answer: {answer.upper()}")
+    short_pause()
     print(f"Jake's answer: {jake_answer}")
+    short_pause()
 
     if answer == "a":
         print(reaction_a)
@@ -193,9 +223,13 @@ def question(num, text, jake_answer, reaction_a, reaction_b, reaction_c):
         print(reaction_c)
         
 def behaviors():
+    print("[✓] Behaviors selected!")
+    print("Comprehensing Jake's actions...\n")
+    medium_pause()
 
-    print("""\nYou're gonna answers some questions about behaviors with me.
+    print("""You're gonna answer some questions about behaviors with me.
 It'll be useful to get to know some of my basic human functions :D""")
+    medium_pause()
     
     question(
     1,
@@ -210,7 +244,8 @@ C. Alternate between theory and practice.
     "-> Yep, same. I like to try things first and figure things out along the way.",
     "-> Honestly, that's probably the healthiest approach."
     )
-            
+    long_pause()
+    
     question(
     2,
     """In a new group of people, you usually:
@@ -224,7 +259,8 @@ C. Depends on the group and the vibe.
     "-> That's braver than me 🤣 I don't usually walk into a room and start collecting friends.",
     "-> Same. My social mode changes a lot depending on who's around."
     )
-            
+    long_pause()
+    
     question(
     3,
     """Which type of behavior bothers you most?
@@ -238,7 +274,8 @@ C. Dishonesty and talking behind people's backs.
     "-> I get that too. A little complaining is fine, but endless negativity gets exhausting.",
     "-> Yeah... Trust is really important in any friendship."
     )
-            
+    long_pause()
+    
     question(
     4,
     """What usually motivates you to do something?
@@ -252,7 +289,8 @@ C. Responsibility to other people.
     "-> Yep. Curiosity is ridiculously effective on me. \nOne random idea can consume my entire afternoon.",
     "-> Helping people is also motivating for me. I like feeling useful."
     )
-            
+
+    long_pause()
     question(
     5,
     """When facing a difficult problem, you usually:
@@ -264,9 +302,10 @@ C. Take a break and return later.
     "A",
     "-> Same. I tend to poke problems with a stick until they reveal what they're hiding. 🤓",
     "-> I should probably do this more often. \nAsking for help isn't exactly my first instinct.",
-    "-> Honestly, this works more often than I thought. A reset can help a lot."
+    "-> Honestly, this works more often than I thought. A rest can help a lot."
     )
-
+    long_pause()
+    
     print("""
 Congratulations. You have successfully completed the behavior test.
 
@@ -275,9 +314,14 @@ a program to get to know me, it doesn't matter :P.
 
 Oh, you can also try as many options as you want.
 They have different responses :3""")
+    long_pause()
 # ============ HOBBIES ============
 def hobbies():
-    while True:
+    print("[✓] Hobbies selected!")
+    print("Jake has a lot of hobbies...\n")
+    medium_pause()
+    
+    while True:       
         hobby_choice = input("""Choose a hobby below to read more:
     
 2.1 Photography
@@ -285,7 +329,7 @@ def hobbies():
 2.3 Sleeping
 2.4 Exit
 
-Option: """)
+Option: """).strip()
         if hobby_choice == "2.1":
             print("""I enjoy taking photos, especially landscapes.
 My walking speed decreases by approximately 90%
@@ -293,6 +337,7 @@ whenever the landscape becomes interesting.
 Please be patient.
 Also I really like to propose photography ideas for people.
 """)
+            long_pause()
                 
         elif hobby_choice == "2.2":
             print("""I have been cooking since I was 6.
@@ -301,6 +346,7 @@ If I choose to cook, I become 999% focused.
 The food choice can be questionable
 but most of the time it tastes good.
 """)
+            long_pause()
 
         elif hobby_choice == "2.3":
             print("""...
@@ -311,14 +357,21 @@ Yes, I enjoy sleeping.
 Unfortunately, sleep schedule and I are
 currently in a long-distance relationship.
 """)
+            long_pause()
 
         elif hobby_choice == "2.4":
             print("See you again! You can check this menu again too.")
+            short_pause()
             break
         else:
             print("Noooooooo, you're breaking my baby code T-T\n")
+            short_pause()
 # ============ BACKGROUND ============ 
 def background():
+    print("[✓] Background selected!")
+    print("Loading Jake's background...\n")
+    medium_pause()
+    
     print("""Hello! My name is Dang (also known as Jake).
 
 After surviving:
@@ -340,11 +393,12 @@ Eventually I discovered that statistics, probability, logic
 and asking "but why?" are actually pretty fun.
 
 Calculus and I maintain a ceasefire (for now). Please don't question.""")
+    long_pause()
 # ============ MENU ============
 def menu():
     while True: 
         choice = input("""
-Choose what you want to know:
+Choose what you want to know about me:
 
 1. Background
 2. Hobbies
@@ -366,7 +420,8 @@ Option: """).strip()
             goodbye()
             break
         else:
-            print("Noooooooo, you're breaking my baby code T-T\n")
+            print("Noooooooo, you're breaking my baby code T-T")
+            short_pause()
 # ============ INTRODUCTION ============
 def introduction():
     print("""================================
@@ -374,18 +429,26 @@ Welcome to Friend Introduction!
 
 Version 0.7 - Behavioral Revamp
 ================================""")
+    
     user_name = input("Please enter your name here:\n")
+    print("Verifying your name...")
+    medium_pause()
     print(f"""Hello there, {user_name}!
 My name is Dang, but you can call me Jake.
+""")
+    long_pause()
 
-I know it's pretty hard to introduce ourselves and
+    print("""I know it's pretty hard to introduce ourselves and
 get to know each other without being awkward.
+""")
+    long_pause()
 
-So I made this little program so you can get to know me first!
+    print("""So I made this little program so you can get to know me first!
 Believe me this is not malware T-T
 (Right???)
 
 So if you're ready...""")
+    long_pause()
     menu()
 # ============ START THE GAME! ============
 introduction()
