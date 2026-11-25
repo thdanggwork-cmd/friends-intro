@@ -1,5 +1,20 @@
 import time
-
+import random
+# ============ INVALID MESSAGES ============
+invalid_messages = [
+    "Booooo, you chose the invalid option.\n:P :P :P",
+    "Error 404: Common sense not found.",
+    "You discovered a secret option.\nSadly, it contains nothing.",
+    "I have no idea what option that is.\nCongratulations on discovering new mathematics.",
+    "Please enter a valid option.\nThe program is trying its best.",
+    "Congratulations.\nYou have selected Optionn't.",
+    "The option you're looking for is studying abroad.",
+    "Task failed successfully.",
+    "Please try again.\nPreferably with less innovation.",
+    "This message has a 0.1% chance of appearing.\nI lied. But please type the correct value!",
+    "WRONGGG.\nIf you're stuck, you gotta type exactly as it is! 1, 2, or A, B, C like that.",
+]
+# ============ PAUSES ============
 def short_pause():
     time.sleep(0.8)
     
@@ -9,6 +24,14 @@ def medium_pause():
 def long_pause():
     time.sleep(2)
     
+def stop():
+    input("\n[Type anything to continue]\n")
+    
+def back_menu():
+    input("\n[Type anything to return to main menu...]\n")
+    print("Returning to main menu...")
+    short_pause()
+# ============ GOODBYE ============
 def goodbye():
     print("Oh, see you again!")
 # ============ COMPATIBILITY QUIZ ============
@@ -92,6 +115,8 @@ def reflective_question(num, text, jake_refl, explanation):
 
         if answer_refl in ["a", "b", "c", "d"]:
             break
+        print(random.choice(invalid_messages))
+        short_pause()
         print("\nPlease choose a valid option or this will go on forever.\n")
         short_pause()
 
@@ -111,6 +136,8 @@ def compatibility_question(num, text, jake_comp, explanation, valid_answers, all
 
         if answer_comp in [al.lower() for al in allowed]:
             break
+        print(random.choice(invalid_messages))
+        short_pause()
         print("\nPlease choose a valid option or this will go on forever.\n")
         short_pause()
 
@@ -155,6 +182,7 @@ Let's see if we are any compatible!
             valid_answers=q["valid"],
             allowed=q["allowed"]
         )
+        stop()
         
     reflective_question(
         7,
@@ -167,6 +195,7 @@ D. Something personal""",
         "???",
         """Honestly, I don't know yet.\n\nI'm entering a new chapter of life, and I haven't fully figured out what I want to do.\n\nMaybe that's okay.\n\nFor now, I'm exploring the options I have.\nYou could also explore with me if you want to :P"""
     )
+    stop()
     
     for q in COMP_QUESTIONS[6:]:
         current_score += compatibility_question(
@@ -177,6 +206,7 @@ D. Something personal""",
             valid_answers=q["valid"],
             allowed=q["allowed"]
         )
+        stop()
 
     print("Calculating compatibility score...")
     long_pause()
@@ -199,12 +229,15 @@ I believe we all have similarities and differences.
 But hey, that's what make us special, right?
 Check out the other menus if you haven't! Or do the quiz again :3""")
     long_pause()
+    back_menu()
 # ============ BEHAVIORS ============
 def question(num, text, jake_answer, reaction_a, reaction_b, reaction_c):
     while True:
         answer = input(f"{num}. {text} ").lower().strip()
         if answer in ["a", "b", "c"]:
             break
+        print(random.choice(invalid_messages))
+        short_pause()
         print("\nPlease choose A, B, or C or this will go on forever.\n")
         short_pause()
     short_pause()
@@ -230,6 +263,7 @@ def behaviors():
     print("""You're gonna answer some questions about behaviors with me.
 It'll be useful to get to know some of my basic human functions :D""")
     medium_pause()
+    stop()
     
     question(
     1,
@@ -245,6 +279,7 @@ C. Alternate between theory and practice.
     "-> Honestly, that's probably the healthiest approach."
     )
     long_pause()
+    stop()
     
     question(
     2,
@@ -260,6 +295,7 @@ C. Depends on the group and the vibe.
     "-> Same. My social mode changes a lot depending on who's around."
     )
     long_pause()
+    stop()
     
     question(
     3,
@@ -275,6 +311,7 @@ C. Dishonesty and talking behind people's backs.
     "-> Yeah... Trust is really important in any friendship."
     )
     long_pause()
+    stop()
     
     question(
     4,
@@ -291,6 +328,8 @@ C. Responsibility to other people.
     )
 
     long_pause()
+    stop()
+    
     question(
     5,
     """When facing a difficult problem, you usually:
@@ -305,9 +344,9 @@ C. Take a break and return later.
     "-> Honestly, this works more often than I thought. A rest can help a lot."
     )
     long_pause()
+    stop()
     
-    print("""
-Congratulations. You have successfully completed the behavior test.
+    print("""Congratulations. You have successfully completed the behavior test.
 
 I don't know what you answered, but since this is
 a program to get to know me, it doesn't matter :P.
@@ -315,6 +354,7 @@ a program to get to know me, it doesn't matter :P.
 Oh, you can also try as many options as you want.
 They have different responses :3""")
     long_pause()
+    back_menu()
 # ============ HOBBIES ============
 def hobbies():
     print("[✓] Hobbies selected!")
@@ -335,19 +375,18 @@ Option: """).strip()
 My walking speed decreases by approximately 90%
 whenever the landscape becomes interesting.
 Please be patient.
-Also I really like to propose photography ideas for people.
-""")
+Also I really like to propose photography ideas for people.""")
             long_pause()
+            stop()
                 
         elif hobby_choice == "2.2":
             print("""I have been cooking since I was 6.
 If someone urges me to cook, my motivation drops significantly.
 If I choose to cook, I become 999% focused.
 The food choice can be questionable
-but most of the time it tastes good.
-""")
+but most of the time it tastes good.""")
             long_pause()
-
+            stop()
         elif hobby_choice == "2.3":
             print("""...
 ...
@@ -355,16 +394,16 @@ zzz...
 
 Yes, I enjoy sleeping.
 Unfortunately, sleep schedule and I are
-currently in a long-distance relationship.
-""")
+currently in a long-distance relationship.""")
             long_pause()
-
+            stop()
         elif hobby_choice == "2.4":
             print("See you again! You can check this menu again too.")
+            print("Returning to main menu...")
             short_pause()
             break
         else:
-            print("Noooooooo, you're breaking my baby code T-T\n")
+            print(random.choice(invalid_messages))
             short_pause()
 # ============ BACKGROUND ============ 
 def background():
@@ -394,6 +433,7 @@ and asking "but why?" are actually pretty fun.
 
 Calculus and I maintain a ceasefire (for now). Please don't question.""")
     long_pause()
+    back_menu()
 # ============ MENU ============
 def menu():
     while True: 
@@ -420,7 +460,7 @@ Option: """).strip()
             goodbye()
             break
         else:
-            print("Noooooooo, you're breaking my baby code T-T")
+            print(random.choice(invalid_messages))
             short_pause()
 # ============ INTRODUCTION ============
 def introduction():
