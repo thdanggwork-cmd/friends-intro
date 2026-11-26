@@ -464,16 +464,23 @@ Option: """).strip()
             short_pause()
 # ============ INTRODUCTION ============
 def introduction():
-    print("""================================
+    print("""
+================================
 Welcome to Friend Introduction!
 
-Version 0.7 - Behavioral Revamp
+Version 0.9 - Wait For Me
 ================================""")
     
     user_name = input("Please enter your name here:\n")
-    print("Verifying your name...")
-    medium_pause()
-    print(f"""Hello there, {user_name}!
+    for i in range (0, 8):
+        dots = i % 4
+        point = "." * dots
+        print(f"\r\033[KVerifying your name{point}", end="")
+        time.sleep(0.3)
+        
+    print(f"""
+
+Hello there, {user_name}!
 My name is Dang, but you can call me Jake.
 """)
     long_pause()
@@ -491,4 +498,8 @@ So if you're ready...""")
     long_pause()
     menu()
 # ============ START THE GAME! ============
+for i in range(1, 11):
+    bar = "█" * i + "░" * (10 - i)
+    print(f"\rBooting up... [{bar}]", end="")
+    time.sleep(0.3)
 introduction()
