@@ -1,5 +1,8 @@
 import time
 import random
+import sys
+completed_sections = set()
+completed_hobbies = set()
 # ============ INVALID MESSAGES ============
 invalid_messages = [
     "Booooo, you chose the invalid option.\n:P :P :P",
@@ -25,15 +28,41 @@ def long_pause():
     time.sleep(2)
     
 def stop():
-    input("\n[Type anything to continue]\n")
+    input("\n[Press Enter to continue]\n")
     
 def back_menu():
-    input("\n[Type anything to return to main menu...]\n")
+    input("\n[Press Enter to return to main menu...]\n")
     print("Returning to main menu...")
     short_pause()
 # ============ GOODBYE ============
 def goodbye():
-    print("Oh, see you again!")
+    print("Hey there! Thanks for completing this small program.")
+    medium_pause()
+    print(f"You have completed {len(completed_sections)}/4 sections.")
+    medium_pause()
+    
+    if len(completed_sections) == 4:
+        print("Yay! You explored every part of the program ^_^\n")
+        medium_pause()
+    else:
+        print("There are still some parts that you didn't explore T-T")
+        print("But it's okay. I hope you didn't miss out too much!\n")
+        medium_pause()
+    
+    print("Either way, I hope you were able to get to know me a little bit more.")
+    medium_pause()
+    print("Hopefully we can meet each other someday and become good friends!")
+    medium_pause()
+    print("Farewell, and I hope every day of your life is filled with joy :P")
+    medium_pause()
+    print("\n- Jake (or Dang) -\n")
+    long_pause()
+    for i in range (0, 12):
+        dots = i % 4
+        point = "." * dots
+        print(f"\r\033[KGoing back to your computer{point}", end="")
+        time.sleep(0.3)
+    sys.exit()
 # ============ COMPATIBILITY QUIZ ============
 COMP_QUESTIONS = [
     {
@@ -78,25 +107,25 @@ COMP_QUESTIONS = [
     },
     {
         "num": 6,
-        "text": "What would you most likely forget before a trip?\n\nA. Phone\nB. Charger\nC. Money\nD. ID Card\nE. Airpods",
-        "jake_comp": "D",
-        "explanation": "I'm always telling myself that I prepared the IDs.\nAnd then forgot one of them. And encountered 101 problems and criticisms.\n\nPlease remind me twice before going out anytime.\nI'm working on it, I promise! I'll remind you too :D",
-        "valid": ["d"],
+        "text": "How often do you move around?\n\nA. Move a lot every day\nB. Average amount of movement\nC. Sit around a lot, rarely move\nD. Feet take root in the ground\nE. Depends on the day",
+        "jake_comp": "B",
+        "explanation": "I don't like sitting around a lot.\nThough sometimes I really need to lock in and anchor myself to the chair.\nPlease exercise frequently though ;-;",
+        "valid": ["b"],
         "allowed": ["a", "b", "c", "d", "e"]
     },
     {
         "num": 8,
-        "text": "You find two options. What would you choose?\n\nA. More expensive but slightly better\nB. Cheaper but still acceptable",
+        "text": "You want to buy something and find two options. What would you choose?\n\nA. More expensive but slightly better\nB. Cheaper but still acceptable",
         "jake_comp": "B",
-        "explanation": "I usually try to maximize value.\nYou could see me stretching my wallet like bubble gums.\n\nIt isn't always as sweet as bubble gums, though.",
+        "explanation": "I usually try to maximize value.\nYou could see me stretching my wallet like bubble gum.\n\nIt isn't always as sweet as bubble gum, though.",
         "valid": ["b"],
         "allowed": ["a", "b"]
     },
     {
         "num": 9,
-        "text": "What would a shared room with you probably look like?\n\nA. Extremely organized\nB. Organized chaos\nC. Self-disaster only\nD. Complete mess",
+        "text": "How 'tidy' is your room?\n\nA. Extremely organized\nB. Somewhat organized\nC. Self-disaster only\nD. Complete mess",
         "jake_comp": "C",
-        "explanation": "I usually mess up my room a lot.\n\nBut I often try to keep that disorganization to myself.\nI value public places :P\nYeah I'll keep the living room tidy.",
+        "explanation": "I usually mess up my room a lot.\n\nBut I often try to keep that disorganization to myself.\nI value public places :P",
         "valid": ["c"],
         "allowed": ["a", "b", "c", "d"]
     },
@@ -111,7 +140,7 @@ COMP_QUESTIONS = [
 ]
 def reflective_question(num, text, jake_refl, explanation):
     while True:
-        answer_refl = input(f"{num}. {text}\n> ").strip().lower()
+        answer_refl = input(f"{num}. {text}\n-> ").strip().lower()
 
         if answer_refl in ["a", "b", "c", "d"]:
             break
@@ -132,14 +161,14 @@ def reflective_question(num, text, jake_refl, explanation):
     
 def compatibility_question(num, text, jake_comp, explanation, valid_answers, allowed):
     while True:
-        answer_comp = input(f"{num}. {text}\n> ").strip().lower()
+        answer_comp = input(f"{num}. {text}\n-> ").strip().lower()
 
         if answer_comp in [al.lower() for al in allowed]:
             break
         print(random.choice(invalid_messages))
-        short_pause()
+        medium_pause()
         print("\nPlease choose a valid option or this will go on forever.\n")
-        short_pause()
+        medium_pause()
 
     print("\n-------- RESULT --------\n")
     short_pause()
@@ -167,8 +196,8 @@ def test():
     medium_pause()
 
     print("""Here's a quiz of some other random stuff I do.
-Let's see if we are any compatible!
-(P/s it doesn't matter that much tbh)
+Let's see how compatible we are!
+(P.S. it doesn't matter that much tbh)
 """)
     long_pause()
     current_score = 0
@@ -190,10 +219,10 @@ Let's see if we are any compatible!
 
 A. A successful, worldwide business
 B. Useful projects and tools
-C. Laughter stuff
+C. Something that makes people laugh
 D. Something personal""",
         "???",
-        """Honestly, I don't know yet.\n\nI'm entering a new chapter of life, and I haven't fully figured out what I want to do.\n\nMaybe that's okay.\n\nFor now, I'm exploring the options I have.\nYou could also explore with me if you want to :P"""
+        "Honestly, I don't know yet.\n\nI'm entering a new chapter of life, and I haven't fully figured out what I want to do.\n\nMaybe that's okay. For now, I'm exploring the options I have."
     )
     stop()
     
@@ -222,14 +251,15 @@ D. Something personal""",
     else:
         print("\nWarning.\n\nPossible duplicate Jake detected.\n")
     short_pause()
-    print("""[✓] Compatibility test finished!
+    print("""[✓] Compatibility quiz finished!
 Thank you for participating in the official Jake compatibility assessment.
 
 I believe we all have similarities and differences.
-But hey, that's what make us special, right?
+But hey, that's what makes us special, right?
 Check out the other menus if you haven't! Or do the quiz again :3""")
     long_pause()
     back_menu()
+    completed_sections.add("Friend Manual")
 # ============ BEHAVIORS ============
 def question(num, text, jake_answer, reaction_a, reaction_b, reaction_c):
     while True:
@@ -237,9 +267,9 @@ def question(num, text, jake_answer, reaction_a, reaction_b, reaction_c):
         if answer in ["a", "b", "c"]:
             break
         print(random.choice(invalid_messages))
-        short_pause()
+        medium_pause()
         print("\nPlease choose A, B, or C or this will go on forever.\n")
-        short_pause()
+        medium_pause()
     short_pause()
     print("\n----- COMPARISON -----\n")
     short_pause()
@@ -257,7 +287,7 @@ def question(num, text, jake_answer, reaction_a, reaction_b, reaction_c):
         
 def behaviors():
     print("[✓] Behaviors selected!")
-    print("Comprehensing Jake's actions...\n")
+    print("Understanding Jake's behavior...\n")
     medium_pause()
 
     print("""You're gonna answer some questions about behaviors with me.
@@ -346,15 +376,17 @@ C. Take a break and return later.
     long_pause()
     stop()
     
-    print("""Congratulations. You have successfully completed the behavior test.
+    print("""[✓] Behavior test finished!
+Congratulations. You have successfully completed the behavior test.
 
 I don't know what you answered, but since this is
 a program to get to know me, it doesn't matter :P.
 
-Oh, you can also try as many options as you want.
+Oh, you can also try different answers too.
 They have different responses :3""")
     long_pause()
     back_menu()
+    completed_sections.add("Behaviors")
 # ============ HOBBIES ============
 def hobbies():
     print("[✓] Hobbies selected!")
@@ -375,9 +407,10 @@ Option: """).strip()
 My walking speed decreases by approximately 90%
 whenever the landscape becomes interesting.
 Please be patient.
-Also I really like to propose photography ideas for people.""")
+Also I really like to come up with photography ideas for people.""")
             long_pause()
             stop()
+            completed_hobbies.add("Photography")
                 
         elif hobby_choice == "2.2":
             print("""I have been cooking since I was 6.
@@ -387,6 +420,8 @@ The food choice can be questionable
 but most of the time it tastes good.""")
             long_pause()
             stop()
+            completed_hobbies.add("Cooking")
+            
         elif hobby_choice == "2.3":
             print("""...
 ...
@@ -397,14 +432,18 @@ Unfortunately, sleep schedule and I are
 currently in a long-distance relationship.""")
             long_pause()
             stop()
+            completed_hobbies.add("Sleeping")
+            
         elif hobby_choice == "2.4":
-            print("See you again! You can check this menu again too.")
+            print("See you again! Check out other menus as well!")
             print("Returning to main menu...")
+            if len(completed_hobbies) == 3:
+                completed_sections.add("Hobbies")
             short_pause()
             break
         else:
             print(random.choice(invalid_messages))
-            short_pause()
+            medium_pause()
 # ============ BACKGROUND ============ 
 def background():
     print("[✓] Background selected!")
@@ -434,8 +473,13 @@ and asking "but why?" are actually pretty fun.
 Calculus and I maintain a ceasefire (for now). Please don't question.""")
     long_pause()
     back_menu()
+    completed_sections.add("Background")
 # ============ MENU ============
 def menu():
+    print("""Recommended sequence: 1 -> 2 -> 3 -> 4 -> 5
+(Or do whatever you want.
+I can't stop you anyway.)""")
+    long_pause()
     while True: 
         choice = input("""
 Choose what you want to know about me:
@@ -458,20 +502,19 @@ Option: """).strip()
             test()
         elif choice == "5":
             goodbye()
-            break
         else:
             print(random.choice(invalid_messages))
-            short_pause()
+            medium_pause()
 # ============ INTRODUCTION ============
 def introduction():
     print("""
 ================================
 Welcome to Friend Introduction!
 
-Version 0.9 - Wait For Me
+Version 1.5 - Farewell
 ================================""")
     
-    user_name = input("Please enter your name here:\n")
+    user_name = input("Please enter your name here:\n").strip()
     for i in range (0, 8):
         dots = i % 4
         point = "." * dots
@@ -493,8 +536,7 @@ get to know each other without being awkward.
     print("""So I made this little program so you can get to know me first!
 Believe me this is not malware T-T
 (Right???)
-
-So if you're ready...""")
+""")
     long_pause()
     menu()
 # ============ START THE GAME! ============
